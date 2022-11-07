@@ -42,7 +42,7 @@ const Navbar = () => {
             {navlinks}
           </ul>
         </div>
-        <Link className="btn btn-ghost normal-case text-xl">Photography</Link>
+        <Link className="btn btn-ghost normal-case text-xl">Wedding Family BD</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
