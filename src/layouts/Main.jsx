@@ -5,17 +5,17 @@ import Navbar from '../pages/Shared/Navbar/Navbar';
 
 const Main = () => {
     return (
-        <div>
-            <div>
-                <Navbar></Navbar>
-            </div>
-            <div>
-                <Outlet></Outlet>
-            </div>
-            <div>
-                <Footer></Footer>
-            </div>
+      <div className="max-w-screen-xl mx-auto">
+        <div className='mb-3'>
+          <Navbar></Navbar>
         </div>
+        <div>
+          <Outlet></Outlet>
+        </div>
+        <div>
+          <Footer></Footer>
+        </div>
+      </div>
     );
 };
 
