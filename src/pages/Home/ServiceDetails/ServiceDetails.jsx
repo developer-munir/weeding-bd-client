@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthProvider";
 import AddAReview from "../../Reviews/AddAReview";
 import Reviews from "../../Reviews/Reviews";
 import "./servicedetails.css";
-
+import { FaSadTear } from "react-icons/fa";
 const ServiceDetails = () => {
   const serviceDetails = useLoaderData();
   const [reviews, setReviews] = useState();
+  const { user } = useContext(AuthContext);
   const { img, description, price, service_id, ratings, title, _id } =
     serviceDetails;
   useEffect(() => {
@@ -46,7 +48,16 @@ const ServiceDetails = () => {
                 Add A Review
               </h1>
             </Link>
-            <AddAReview></AddAReview>
+            {user?.uid ? (
+              <AddAReview></AddAReview>
+            ) : (
+              <div className=" text-center ">
+                <p className="text-3xl font-bold my-5">
+                  Please Log in first to add a review
+                </p>
+                <FaSadTear size={100} className="block m-auto"></FaSadTear>
+              </div>
+            )}
           </div>
           <div>
             <Link>
@@ -55,7 +66,10 @@ const ServiceDetails = () => {
               </h1>
             </Link>
             {reviews?.map((userReviews) => (
-              <Reviews key={userReviews._id} userReviews={userReviews}></Reviews>
+              <Reviews
+                key={userReviews._id}
+                userReviews={userReviews}
+              ></Reviews>
             ))}
           </div>
         </div>
