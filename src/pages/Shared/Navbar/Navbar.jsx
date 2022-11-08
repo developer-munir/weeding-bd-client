@@ -1,20 +1,44 @@
-import React from "react";
+import React, { useContext } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthProvider";
 
 const Navbar = () => {
-    const navlinks = (
-      <>
-        <li>
-          <Link to='/'>Home</Link>
-        </li>
-        <li>
-          <Link>Blog</Link>
-        </li>
-        <li>
-          <Link to='/login'>Login</Link>
-        </li>
-      </>
-    );
+  const { user, logOut } = useContext(AuthContext);
+
+  const notify = () => toast("Logout Successfully");
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        notify();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+  const navlinks = (
+    <>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link>Blog</Link>
+      </li>
+      {user?.uid ? (
+        <>
+          <li>
+            <Link onClick={handleLogout}>Logout</Link>
+          </li>
+        </>
+      ) : (
+        <>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        </>
+      )}
+    </>
+  );
   return (
     <div className="navbar py-5">
       <div className="navbar-start">
@@ -42,15 +66,15 @@ const Navbar = () => {
             {navlinks}
           </ul>
         </div>
-        <Link className="btn btn-ghost normal-case text-xl">Wedding Family BD</Link>
+        <Link className="btn btn-ghost normal-case text-xl">
+          Wedding Family BD
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal p-0">
-          {navlinks}
-        </ul>
+        <ul className="menu menu-horizontal p-0">{navlinks}</ul>
       </div>
       <div className="navbar-end">
-        <span>UserName</span>
+        <span>{user?.email}</span>
       </div>
     </div>
   );
