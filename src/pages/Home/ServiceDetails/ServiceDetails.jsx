@@ -6,7 +6,6 @@ import './servicedetails.css'
 
 const ServiceDetails = () => {
   const serviceDetails = useLoaderData();
-  console.log(serviceDetails);
   const { img, description, price, service_id, ratings, title, _id } =
     serviceDetails;
   return (
