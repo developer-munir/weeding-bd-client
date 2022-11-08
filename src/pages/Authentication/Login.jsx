@@ -1,10 +1,35 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import toast from "react-hot-toast";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
 
 const Login = () => {
+  const { loginUser } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
+  const notify = () => toast("login successfully");
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    loginUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        notify();
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   return (
     <div className="hero min-h-screen">
-      <div className="hero-content grid w-1/2 mx-auto">
+      <div className="hero-content grid md:w-1/2 mx-auto">
         <div className="text-center">
           <h1 className="text-5xl font-bold">Login now!</h1>
           <p className="py-6">
@@ -14,7 +39,7 @@ const Login = () => {
           </p>
         </div>
         <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
-          <form className="card-body">
+          <form className="card-body" onSubmit={handleLogin}>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -48,7 +73,9 @@ const Login = () => {
               <button className="btn btn-primary">Login</button>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Sing in Google</button>
+              <button className="btn btn-primary" type="submit">
+                Sing in Google
+              </button>
             </div>
           </form>
         </div>
