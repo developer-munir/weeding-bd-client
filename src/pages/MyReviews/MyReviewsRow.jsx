@@ -1,13 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaRegWindowMinimize } from "react-icons/fa";
 
-const MyReviewsRow = ({ reviews }) => {
+const MyReviewsRow = ({ reviews, deleteReview }) => {
   // console.log(reviews);
   const { email, name, photo, price, ratings, review, reviewImg, title, _id } =
     reviews;
+
+  
   return (
     <div class="my-5">
-      <div class="flex flex-col">
+      <div class="">
         <div class="overflow-x-auto shadow-md sm:rounded-lg">
           <div class="inline-block min-w-full align-middle">
             <div class="overflow-hidden ">
@@ -42,7 +45,12 @@ const MyReviewsRow = ({ reviews }) => {
                   <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
                     <td class="p-4 w-4">
                       <div class="flex items-center">
-                        <span>X</span>
+                        <span
+                          className="cursor-pointer"
+                          onClick={() => deleteReview(_id)}
+                        >
+                          <FaRegWindowMinimize></FaRegWindowMinimize>
+                        </span>
                       </div>
                     </td>
                     <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -52,7 +60,7 @@ const MyReviewsRow = ({ reviews }) => {
                       {review}
                     </td>
                     <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                      {price}
+                      {price}$
                     </td>
                     <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
                       <Link
