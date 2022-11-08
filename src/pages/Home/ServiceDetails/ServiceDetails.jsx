@@ -1,6 +1,6 @@
 import React from "react";
-import { Link, Outlet, useLoaderData } from "react-router-dom";
-import AddReviews from "../../Reviews/AddReviews";
+import { Link, useLoaderData } from "react-router-dom";
+import AddAReview from "../../Reviews/AddAReview";
 import Reviews from "../../Reviews/Reviews";
 import './servicedetails.css'
 
@@ -36,6 +36,8 @@ const ServiceDetails = () => {
                 Add A Review
               </h1>
             </Link>
+            <AddAReview>
+            </AddAReview>
           </div>
           <div>
             <Link>
