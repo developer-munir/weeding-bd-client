@@ -59,7 +59,8 @@ const ServiceDetails = () => {
                 <p className="text-3xl font-bold my-5">
                   Please Log in first to add a review
                 </p>
-                <FaSadTear size={100} className="block m-auto"></FaSadTear>
+                <FaSadTear size={100} className="block m-auto mb-5"></FaSadTear>
+                <Link className="link link-primary" to='/login'>login now</Link>
               </div>
             )}
           </div>
