@@ -1,23 +1,38 @@
-import React, { useContext, useEffect } from 'react';
-import { ServiceContext } from '../../../context/ServicesProvider';
+import React from 'react';
+import { Link, useLoaderData } from 'react-router-dom';
+
 
 const ServiceDetails = () => {
-    const { serviceId } = useContext(ServiceContext);
-    // console.log(serviceId)
-    useEffect(() => {
-        fetch(`http://localhost:5000/servicedetails/${serviceId}`)
-        .then(res => res.json())
-            .then(data => {
-            console.log(data)
-            })
-            .catch(error => {
-                console.log(error);
-        })
-    },[serviceId])
+  const serviceDetails = useLoaderData();
+  console.log(serviceDetails);
+  const { img } = serviceDetails;
+    
     return (
-        <div>
-            <h1>Details Page</h1>
+      <div>
+        <div className="card card-side bg-base-100 shadow-xl rounded-none grid md:grid-cols-2">
+          <figure>
+            <img src={img} alt="wedding" className="w-full h-full" />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title">{}!</h2>
+            <p>
+              
+            </p>
+            <div className="card-actions">
+              <span>Price : {}$</span>
+              <span>Ratings : {}</span>
+
+              <div className="border px-3 py-1 w-full text-center border-black cursor-pointer hover:bg-slate-300">
+                <Link
+                  
+                >
+                  Details
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     );
 };
 
