@@ -9,7 +9,7 @@ const ServiceDetails = () => {
   const serviceDetails = useLoaderData();
   const [reviews, setReviews] = useState();
   const { user } = useContext(AuthContext);
-  const { img, description, price, service_id, ratings, title, _id } =
+  const { img, description, price, ratings, title } =
     serviceDetails;
   useEffect(() => {
     fetch("http://localhost:5000/allposts")

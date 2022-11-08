@@ -6,7 +6,7 @@ const Reviews = ({ userReviews }) => {
   return (
     <div className="border border-black p-3 ">
       <div className="flex items-center">
-        <img src={photo} className="w-10 h-10 rounded-full mr-3" alt="" />
+        <img src={photo} className="w-10 h-10 rounded-full mr-3 border border-black" alt="" />
         <h1>{name ? name : "No Name Found"}</h1>
       </div>
       <p className="text-center">{review}</p>

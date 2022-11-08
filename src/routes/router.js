@@ -7,6 +7,7 @@ import Home from "../pages/Home/Home/Home";
 import ServiceDetails from "../pages/Home/ServiceDetails/ServiceDetails";
 import AllServices from "../pages/Home/Services/AllServices";
 import Services from "../pages/Home/Services/Services";
+import MyReviews from "../pages/MyReviews/MyReviews";
 
 export const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/services/${params.id}`),
       },
+      {
+        path: '/myreviews',
+        element:<MyReviews></MyReviews>
+      }
     ],
   },
   {

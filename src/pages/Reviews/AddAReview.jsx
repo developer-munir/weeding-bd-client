@@ -3,10 +3,12 @@ import { AuthContext } from "../../context/AuthProvider";
 import "./reviews.css";
 import { FaStar } from "react-icons/fa";
 import toast from "react-hot-toast";
+import { ServiceContext } from "../../context/ServicesProvider";
 
 const AddAReview = () => {
   const { user } = useContext(AuthContext);
   const [number, setNumber] = useState(1);
+  const { serviceId } = useContext(ServiceContext);
 
   const notify = () => toast("Cannot add review more than five star");
   const post = () => toast("Post Successfully");
@@ -19,6 +21,9 @@ const AddAReview = () => {
       photo: user?.photoURL,
       review,
       ratings: number,
+      reviewImg: serviceId?.img,
+      title: serviceId?.title,
+      price:serviceId?.price
     };
     // console.log(reviewUserInfo);
     fetch("http://localhost:5000/allposts", {
