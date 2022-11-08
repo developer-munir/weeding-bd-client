@@ -2,7 +2,7 @@ import React from 'react';
 import headerImg from '../../../assests/header2.jpg';
 const Header = () => {
     return (
-      <div className=" md:w-1/2 mx-auto text-center p-5 ">
+      <div className=" md:w-1/2 mx-auto text-center p-5 mb-5">
         <img
           src={headerImg}
           alt=""
@@ -14,7 +14,7 @@ const Header = () => {
           powerful and often reminds us of the importance of documenting moments
           with my cameras.
         </p>
-        <span className="border border-black py-3 px-20 uppercase font-semibold  cursor-pointer">
+        <span className="border border-black py-3 px-20 uppercase font-semibold  cursor-pointer hover:bg-slate-300">
           Get In Touch
         </span>
       </div>
