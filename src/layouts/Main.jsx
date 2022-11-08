@@ -9,11 +9,11 @@ const Main = () => {
         <div className='mb-3'>
           <Navbar></Navbar>
         </div>
-        <div>
+        <div className='min-h-screen'>
           <Outlet></Outlet>
         </div>
         <div>
-          {/* <Footer></Footer> */}
+          <Footer></Footer>
         </div>
       </div>
     );
