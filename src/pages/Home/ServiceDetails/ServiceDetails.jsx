@@ -1,7 +1,8 @@
 import React from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, Outlet, useLoaderData } from "react-router-dom";
 import AddReviews from "../../Reviews/AddReviews";
 import Reviews from "../../Reviews/Reviews";
+import './servicedetails.css'
 
 const ServiceDetails = () => {
   const serviceDetails = useLoaderData();
@@ -9,11 +10,8 @@ const ServiceDetails = () => {
   const { img, description, price, service_id, ratings, title, _id } =
     serviceDetails;
   return (
-    <div className="grid grid-cols-2 my-10">
-      <div className="bg-red-300">
-        <AddReviews></AddReviews>
-      </div>
-      <div className="bg-blue-300">
+    <div className=" my-10 details-container">
+      <div>
         <div className="card card-side bg-base-100 shadow-xl rounded-none grid">
           <figure>
             <img src={img} alt="wedding" className="w-full h-full" />
@@ -31,7 +29,24 @@ const ServiceDetails = () => {
             </div>
           </div>
         </div>
-        <Reviews></Reviews>
+        <div className="grid md:grid-cols-2 gap-4 p-5 my-10">
+          <div>
+            <Link>
+              <h1 className="text-center text-2xl my-3 md:mr-3 border border-black px-10 py-2">
+                Add A Review
+              </h1>
+            </Link>
+          </div>
+          <div>
+            <Link>
+              <h1 className="text-center text-2xl my-3 border border-black px-10 py-2">
+                All Reviews
+              </h1>
+            </Link>
+
+            <Reviews></Reviews>
+          </div>
+        </div>
       </div>
     </div>
   );
