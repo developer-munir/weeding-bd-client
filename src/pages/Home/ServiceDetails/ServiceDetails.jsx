@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import AddAReview from "../../Reviews/AddAReview";
 import Reviews from "../../Reviews/Reviews";
-import './servicedetails.css'
+import "./servicedetails.css";
 
 const ServiceDetails = () => {
   const serviceDetails = useLoaderData();
+  const [reviews, setReviews] = useState();
   const { img, description, price, service_id, ratings, title, _id } =
     serviceDetails;
+  useEffect(() => {
+    fetch("http://localhost:5000/allposts")
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        setReviews(data);
+      })
+      .catch((error) => console.error(error));
+  }, []);
+
   return (
     <div className=" my-10 details-container">
       <div>
@@ -35,8 +46,7 @@ const ServiceDetails = () => {
                 Add A Review
               </h1>
             </Link>
-            <AddAReview>
-            </AddAReview>
+            <AddAReview></AddAReview>
           </div>
           <div>
             <Link>
@@ -44,8 +54,9 @@ const ServiceDetails = () => {
                 All Reviews
               </h1>
             </Link>
-
-            <Reviews></Reviews>
+            {reviews?.map((userReviews) => (
+              <Reviews key={userReviews._id} userReviews={userReviews}></Reviews>
+            ))}
           </div>
         </div>
       </div>
