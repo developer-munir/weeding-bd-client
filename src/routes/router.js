@@ -20,10 +20,6 @@ export const router = createBrowserRouter([
             element: <Services></Services>,
           },
           {
-            path: "/services",
-            element: <Services></Services>,
-          },
-          {
             path: "/allservices",
             element: <AllServices></AllServices>,
           },

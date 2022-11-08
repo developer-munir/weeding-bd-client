@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import ServicesCard from './ServicesCard';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import ServicesCard from "./ServicesCard";
 
 const AllServices = () => {
   // http://localhost:5000/allservices
@@ -19,7 +19,10 @@ const AllServices = () => {
       <h1 className="text-center text-5xl font-bold my-5 ">My All Services</h1>
       <div className="grid md:grid-cols-2 gap-6 p-2">
         {services?.map((service) => (
-          <ServicesCard service={service} key={service._id}></ServicesCard>
+          <ServicesCard
+            service={service}
+            key={service._id}
+          ></ServicesCard>
         ))}
       </div>
     </div>

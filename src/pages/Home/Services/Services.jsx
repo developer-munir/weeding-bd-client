@@ -21,11 +21,13 @@ const Services = () => {
             <ServicesCard service={service} key={service._id}></ServicesCard>
           ))}
         </div>
-        <Link to='/allservices'>
-          <div className="text-center  w-1/2 mx-auto border-black border text-uppercase py-2 my-3 cursor-pointer text-xl">
-            See All
-          </div>
-        </Link>
+        <div className='text-center'>
+          <Link to="/allservices">
+            <button className="text-center  w-1/2  border-black border text-uppercase py-2 my-3 cursor-pointer text-xl">
+              See All
+            </button>
+          </Link>
+        </div>
       </div>
     );
 };
