@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
-import './reviews.css'
+import "./reviews.css";
 import { FaStar } from "react-icons/fa";
 import toast from "react-hot-toast";
 
@@ -9,6 +9,7 @@ const AddAReview = () => {
   const [number, setNumber] = useState(1);
 
   const notify = () => toast("Cannot add review more than five star");
+  const post = () => toast("Post Successfully");
   const postReview = (e) => {
     e.preventDefault();
     const review = e.target.review.value;
@@ -16,11 +17,28 @@ const AddAReview = () => {
       name: user?.displayName,
       email: user?.email,
       photo: user?.photoURL,
-      uid: user?.uid,
       review,
       ratings: number,
     };
-    console.log(reviewUserInfo);
+    // console.log(reviewUserInfo);
+    fetch("http://localhost:5000/allposts", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(reviewUserInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        if (data.acknowledged) {
+          post();
+          e.target.value = '';
+        }  
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
   const ratingUser = () => {
     if (number === 5) {
