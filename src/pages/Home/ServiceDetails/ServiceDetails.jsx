@@ -31,16 +31,20 @@ const ServiceDetails = () => {
           <div className="card-body">
             <h2 className="card-title">{title}!</h2>
             <p>{description}</p>
-            <div className="card-actions">
+            <div className="card-actions flex items-center justify-between">
               <span>Price : {price}$</span>
               <span>Ratings : {ratings}</span>
 
-              <div className="border px-3 py-1 w-full text-center border-black cursor-pointer hover:bg-slate-300">
-                <Link>See Reviews And Ratings</Link>
-              </div>
+              <Link
+                to="/"
+                className="border px-3 py-2 text-center border-black cursor-pointer hover:bg-slate-300 uppercase"
+              >
+                Back to services
+              </Link>
             </div>
           </div>
         </div>
+        <h1 className="text-5xl text-center my-10">See Reviews And Ratings</h1>
         <div className="grid md:grid-cols-2 gap-4 p-5 my-10">
           <div>
             <Link>
