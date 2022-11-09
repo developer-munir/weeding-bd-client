@@ -7,7 +7,8 @@ import { ServiceContext } from '../../../context/ServicesProvider';
 
 const ServicesCard = ({ service }) => {
   const { detailsService } = useContext(ServiceContext);
-    const { description, img, price, ratings, _id, title } = service;
+  const { description, img, price, ratings, _id, title } = service;
+  console.log(service)
   return (
     <PhotoProvider>
       <div className="card card-side bg-base-100 shadow-xl rounded-none grid md:grid-cols-2">
@@ -17,7 +18,7 @@ const ServicesCard = ({ service }) => {
           </PhotoView>
         </figure>
         <div className="card-body">
-          <h2 className="card-title">{title}!</h2>
+          <h2 className="card-title">{title}</h2>
           <p>
             {description.length > 100
               ? description.slice(0, 100) + "..."
