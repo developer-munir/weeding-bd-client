@@ -21,9 +21,9 @@ const Services = () => {
             <ServicesCard service={service} key={service._id}></ServicesCard>
           ))}
         </div>
-        <div className='text-center'>
+        <div className="text-center">
           <Link to="/allservices">
-            <button className="text-center  w-1/2  border-black border text-uppercase py-2 my-3 cursor-pointer text-xl">
+            <button className="text-center  w-1/2  shadow-xl hover:text-red-500 bg-[#0D0D0D] text-[#CAD5E2] border text-uppercase py-2 my-3 cursor-pointer text-xl">
               See All
             </button>
           </Link>

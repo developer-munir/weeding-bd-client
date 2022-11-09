@@ -27,18 +27,23 @@ const ServiceDetails = () => {
       <div>
         <div className="card card-side bg-base-100 shadow-xl rounded-none grid">
           <figure>
-            <img src={img} alt="wedding" className="w-full h-full" />
+            <img
+              src={img}
+              alt="wedding"
+              data-aos="fade-up-left"
+              className="w-full h-full"
+            />
           </figure>
           <div className="card-body">
             <h2 className="card-title">{title}!</h2>
-            <p>{description}</p>
-            <div className="card-actions flex items-center justify-between">
+            <p className="from-accent-content text-blue-300">{description}</p>
+            <div className="card-actions flex items-center justify-between font-bold">
               <span>Price : {price}$</span>
               <span>Ratings : {ratings}</span>
 
               <Link
                 to="/"
-                className="border px-3 py-2 text-center border-black cursor-pointer hover:bg-slate-300 uppercase"
+                className="border px-3 py-2 text-center  cursor-pointer hover:text-red-500 bg-[#0D0D0D] text-[#CAD5E2] uppercase"
               >
                 Back to services
               </Link>

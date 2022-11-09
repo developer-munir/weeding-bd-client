@@ -59,7 +59,7 @@ const AddAReview = () => {
         ></textarea>
         <button
           type="submit"
-          className="hover:bg-slate-600 hover:text-white border border-black w-1/2 py-2 my-3 text-2xl uppercase font-bold"
+          className="hover:text-red-500 bg-[#0D0D0D] text-[#CAD5E2] w-1/2 py-2 my-3 text-2xl uppercase font-bold"
         >
           Add Review
         </button>

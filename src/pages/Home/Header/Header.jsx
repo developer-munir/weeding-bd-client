@@ -15,8 +15,8 @@ const Header = () => {
           powerful and often reminds us of the importance of documenting moments
           with my cameras.
         </p>
-        <Link to='/'>
-          <span className="border border-black py-3 px-20 uppercase font-semibold  cursor-pointer hover:bg-slate-300">
+        <Link to="/">
+          <span className="shadow-xl hover:text-red-500 bg-[#0D0D0D] text-[#CAD5E2] py-3 px-20 uppercase font-semibold  cursor-pointer">
             Get In Touch
           </span>
         </Link>

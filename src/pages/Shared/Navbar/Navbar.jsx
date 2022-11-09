@@ -19,21 +19,21 @@ const Navbar = () => {
   const navlinks = (
     <>
       <li>
-        <Link className="uppercase" to="/">Home</Link>
+        <Link className="uppercase hover:bg-red-500" to="/">Home</Link>
       </li>
       <li>
-        <Link className="uppercase" to='/blog'>Blog</Link>
+        <Link className="uppercase hover:bg-red-500" to='/blog'>Blog</Link>
       </li>
       {user?.uid ? (
         <>
           <li>
-            <Link className="uppercase" to='/myreviews'>My Reviews</Link>
+            <Link className="uppercase hover:bg-red-500" to='/myreviews'>My Reviews</Link>
           </li>
           <li>
-            <Link className="uppercase" to='/addtoservice'>AddToService</Link>
+            <Link className="uppercase hover:bg-red-500" to='/addtoservice'>AddToService</Link>
           </li>
           <li>
-            <Link className="uppercase" onClick={handleLogout}>Logout</Link>
+            <Link className="uppercase hover:bg-red-500" onClick={handleLogout}>Logout</Link>
           </li>
         </>
       ) : (
@@ -46,7 +46,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar py-5">
+    <div className="navbar py-5 bg-[#0D0D0D] text-[#CAD5E2]">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
