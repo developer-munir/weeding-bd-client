@@ -28,7 +28,7 @@ const ServicesCard = ({ service }) => {
             <span>Ratings : {ratings}</span>
 
             <Link
-              to={`services/${_id}`}
+              to={`/services/${_id}`}
               className="w-full"
               onClick={() => detailsService(service)}
             >

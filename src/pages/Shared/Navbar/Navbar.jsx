@@ -77,7 +77,7 @@ const Navbar = () => {
         <ul className="menu menu-horizontal p-0">{navlinks}</ul>
       </div>
       <div className="navbar-end">
-        <span>{user?.email}</span>
+        <span>{user?.displayName}</span>
       </div>
     </div>
   );

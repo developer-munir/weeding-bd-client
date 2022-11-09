@@ -1,29 +1,26 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import "./reviews.css";
-import { FaStar } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { ServiceContext } from "../../context/ServicesProvider";
 
 const AddAReview = () => {
   const { user } = useContext(AuthContext);
-  const [number, setNumber] = useState(1);
   const { serviceId } = useContext(ServiceContext);
-
-  const notify = () => toast("Cannot add review more than five star");
   const post = () => toast("Post Successfully");
   const postReview = (e) => {
     e.preventDefault();
+    
     const review = e.target.review.value;
     const reviewUserInfo = {
       name: user?.displayName,
       email: user?.email,
       photo: user?.photoURL,
+     
       review,
-      ratings: number,
       reviewImg: serviceId?.img,
       title: serviceId?.title,
-      price:serviceId?.price
+      price: serviceId?.price,
     };
     // console.log(reviewUserInfo);
     fetch("http://localhost:5000/allposts", {
@@ -38,32 +35,25 @@ const AddAReview = () => {
         // console.log(data);
         if (data.acknowledged) {
           post();
-          e.target.value = '';
-        }  
+          e.target.value = "";
+        }
       })
       .catch((error) => {
         console.error(error);
       });
   };
-  const ratingUser = () => {
-    if (number === 5) {
-      return notify();
-    }
-    setNumber(number + 1);
-  };
-  // reviews
+
   return (
-    <div>
+    <div className="h-[400px]">
       <form className="text-center md:pr-3" onSubmit={postReview}>
-        <div
-          className="flex justify-between w-1/4 my-3 cursor-pointer"
-          onClick={ratingUser}
-        >
-          <FaStar></FaStar>
-          <FaStar></FaStar>
-          <FaStar></FaStar>
-          <FaStar></FaStar>
-          <FaStar></FaStar>
+        <div className="flex justify-between w-2/4 my-3 cursor-pointer">
+          <input
+            type="text"
+            name="username"
+            placeholder={user?.displayName}
+            readOnly
+            className="input input-bordered w-full max-w-xs"
+          />
         </div>
         <textarea
           className="textarea border border-black w-full"
@@ -72,7 +62,7 @@ const AddAReview = () => {
         ></textarea>
         <button
           type="submit"
-          className="border border-black w-1/2 py-2 my-3 text-2xl uppercase font-bold"
+          className="hover:bg-slate-600 hover:text-white border border-black w-1/2 py-2 my-3 text-2xl uppercase font-bold"
         >
           Add Review
         </button>
