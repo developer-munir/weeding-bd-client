@@ -9,17 +9,16 @@ const ServiceDetails = () => {
   const serviceDetails = useLoaderData();
   const [reviews, setReviews] = useState();
   const { user } = useContext(AuthContext);
-  const { img, description, price, ratings, title } =
+  const { img, description, price, ratings, title ,} =
     serviceDetails;
   useEffect(() => {
-    fetch("http://localhost:5000/allposts")
+    fetch(`http://localhost:5000/allreviews?title=${title}`)
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
         setReviews(data);
       })
       .catch((error) => console.error(error));
-  }, []);
+  }, [title]);
 
   return (
     <div className=" my-10 details-container">
@@ -60,7 +59,9 @@ const ServiceDetails = () => {
                   Please Log in first to add a review
                 </p>
                 <FaSadTear size={100} className="block m-auto mb-5"></FaSadTear>
-                <Link className="link link-primary" to='/login'>login now</Link>
+                <Link className="link link-primary" to="/login">
+                  login now
+                </Link>
               </div>
             )}
           </div>

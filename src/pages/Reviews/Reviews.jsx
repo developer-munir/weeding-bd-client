@@ -1,8 +1,7 @@
 import React from "react";
 
 const Reviews = ({ userReviews }) => {
-  // console.log(userReviews);
-  const { email, name, photo,  review, _id,username } = userReviews;
+  const { email, name, photo, review, _id, username } = userReviews;
   return (
     <div className="border border-black p-3 ">
       <div className="flex items-center">

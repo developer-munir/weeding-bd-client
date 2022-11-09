@@ -11,7 +11,6 @@ const AddToService = () => {
     const img = form.img.value;
     const ratings = form.ratings.value;
     const description = form.description.value;
-    // console.log(title, price, img, ratings, description);
     const addToService = {
       title: title,
       price: price,

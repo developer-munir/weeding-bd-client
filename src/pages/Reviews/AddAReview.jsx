@@ -21,7 +21,6 @@ const AddAReview = () => {
       title: serviceId?.title,
       price: serviceId?.price,
     };
-    // console.log(reviewUserInfo);
     fetch("http://localhost:5000/allposts", {
       method: "POST",
       headers: {
@@ -31,7 +30,6 @@ const AddAReview = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
         if (data.acknowledged) {
           post();
           form.reset();

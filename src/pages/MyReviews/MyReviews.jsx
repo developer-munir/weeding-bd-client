@@ -1,13 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
-import Reviews from "../Reviews/Reviews";
 import MyReviewsRow from "./MyReviewsRow";
 import toast from "react-hot-toast";
 
 const MyReviews = () => {
   const { user } = useContext(AuthContext);
   const [usersReviews, setUsersReviews] = useState(null);
-  console.log(usersReviews);
+  // console.log(usersReviews);
   useEffect(() => {
     fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
       headers: {
@@ -22,7 +21,6 @@ const MyReviews = () => {
       })
       .then((data) => {
         setUsersReviews(data);
-        // console.log(data);
       })
       .catch((error) => {
         console.error(error);
@@ -35,7 +33,6 @@ const MyReviews = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        //   console.log(data);
         if (data?.acknowledged > 0) {
           const cheaking = window.confirm("Are your sure to delete this?");
           if (cheaking) {

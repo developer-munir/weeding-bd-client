@@ -2,13 +2,11 @@ import React, { useEffect, useState } from "react";
 import ServicesCard from "./ServicesCard";
 
 const AllServices = () => {
-  // http://localhost:5000/allservices
   const [services, setServices] = useState(null);
   useEffect(() => {
     fetch("http://localhost:5000/allservices")
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
         setServices(data);
       });
   }, []);
