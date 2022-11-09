@@ -19,24 +19,27 @@ const Navbar = () => {
   const navlinks = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <Link className="uppercase" to="/">Home</Link>
       </li>
       <li>
-        <Link>Blog</Link>
+        <Link className="uppercase">Blog</Link>
       </li>
       {user?.uid ? (
         <>
           <li>
-            <Link to='/myreviews'>My Reviews</Link>
+            <Link className="uppercase" to='/myreviews'>My Reviews</Link>
           </li>
           <li>
-            <Link onClick={handleLogout}>Logout</Link>
+            <Link className="uppercase" to='/addtoservice'>AddToService</Link>
+          </li>
+          <li>
+            <Link className="uppercase" onClick={handleLogout}>Logout</Link>
           </li>
         </>
       ) : (
         <>
           <li>
-            <Link to="/login">Login</Link>
+            <Link className="uppercase" to="/login">Login</Link>
           </li>
         </>
       )}
@@ -69,14 +72,14 @@ const Navbar = () => {
             {navlinks}
           </ul>
         </div>
-        <Link className="btn btn-ghost normal-case text-xl">
+        <Link className="btn btn-ghost text-xl uppercase">
           Wedding Family BD
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">{navlinks}</ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end uppercase">
         <span>{user?.displayName}</span>
       </div>
     </div>
