@@ -16,7 +16,6 @@ const AddAReview = () => {
       name: user?.displayName,
       email: user?.email,
       photo: user?.photoURL,
-     
       review,
       reviewImg: serviceId?.img,
       title: serviceId?.title,

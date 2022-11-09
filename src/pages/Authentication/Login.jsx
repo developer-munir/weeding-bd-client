@@ -1,11 +1,11 @@
+import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 
 const Login = () => {
-  const { loginUser } = useContext(AuthContext);
-
+  const { loginUser, google } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -25,6 +25,17 @@ const Login = () => {
       })
       .catch((error) => {
         console.error(error);
+      });
+  };
+  const singInGoogle = () => {
+    const googleProvider = new GoogleAuthProvider();
+    google(googleProvider)
+      .then(() => {
+        notify();
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.log(error.message);
       });
   };
   return (
@@ -72,12 +83,16 @@ const Login = () => {
             <div className="form-control mt-6">
               <button className="btn btn-primary">Login</button>
             </div>
-            <div className="form-control mt-6">
-              <button className="btn btn-primary" type="submit">
-                Sing in Google
-              </button>
-            </div>
           </form>
+          <div className="form-control mt-6">
+            <button
+              className="btn btn-primary"
+              type="submit"
+              onClick={singInGoogle}
+            >
+              Sing in Google
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -12,7 +12,7 @@ const MyReviews = () => {
       .then((res) => res.json())
       .then((data) => {
         setUsersReviews(data);
-        console.log(data);
+        // console.log(data);
       })
       .catch((error) => {
         console.error(error);

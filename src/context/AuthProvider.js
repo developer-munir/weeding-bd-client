@@ -1,5 +1,13 @@
 import React, { createContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  updateProfile,
+} from "firebase/auth";
 import app from "../firebase/firebase.config";
 
 // Initialize Firebase Authentication and get a reference to the service
@@ -10,7 +18,7 @@ export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loader, setLoader] = useState(true);
-  console.log(user)
+  // console.log(user);
   // register user
   const registerUser = (email, password) => {
     setLoader(true);
@@ -22,21 +30,26 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
   // logout user
-  const logOut = () =>{
+  const logOut = () => {
     return signOut(auth);
-  }
+  };
+  // google login
+  const google = (provider) => {
+    setLoader(true);
+    return signInWithPopup(auth, provider);
+  };
   // update userProfile
   const userProfileUpdate = (updatedData) => {
     return updateProfile(auth.currentUser, updatedData);
   };
- //manage user
+  //manage user
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoader(false);
-    })
+    });
     return () => unsubscribe();
-  },[])
+  }, []);
 
   const authInfo = {
     registerUser,
@@ -45,6 +58,7 @@ const AuthProvider = ({ children }) => {
     logOut,
     loader,
     userProfileUpdate,
+     google,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
