@@ -19,9 +19,23 @@ const Login = () => {
     loginUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
-        notify();
-        navigate(from, { replace: true });
+        const currentUserInfo = {
+          email: user.email,
+        };
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUserInfo),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("token", data.token);
+            notify();
+            navigate(from, { replace: true });
+          })
+        
       })
       .catch((error) => {
         console.error(error);
@@ -30,9 +44,24 @@ const Login = () => {
   const singInGoogle = () => {
     const googleProvider = new GoogleAuthProvider();
     google(googleProvider)
-      .then(() => {
-        notify();
-        navigate(from, { replace: true });
+      .then((result) => {
+        const user = result.user;
+        const currentUserInfo = {
+          email: user.email,
+        };
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUserInfo),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("token", data.token);
+            notify();
+            navigate(from, { replace: true });
+          });
       })
       .catch((error) => {
         console.log(error.message);
