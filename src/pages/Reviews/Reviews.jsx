@@ -2,7 +2,7 @@ import React from "react";
 
 const Reviews = ({ userReviews }) => {
   // console.log(userReviews);
-  const { email, name, photo, ratings, review, _id,username } = userReviews;
+  const { email, name, photo,  review, _id,username } = userReviews;
   return (
     <div className="border border-black p-3 ">
       <div className="flex items-center">
@@ -15,7 +15,6 @@ const Reviews = ({ userReviews }) => {
       </div>
       <p className="text-center">{review}</p>
       <div className="flex items-center justify-center my-3 text-center">
-        <p className="mr-3">Ratings:{ratings}</p>
         <p>{email}</p>
       </div>
     </div>

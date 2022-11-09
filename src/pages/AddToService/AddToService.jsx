@@ -1,6 +1,8 @@
 import React from "react";
+import toast from "react-hot-toast";
 
 const AddToService = () => {
+  const notify = () => toast('Service Added Successfully');
   const handleAddToService = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -27,6 +29,8 @@ const AddToService = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        notify();
+        form.reset();
       })
       .catch((error) => {
         console.error(error);

@@ -8,7 +8,7 @@ import { ServiceContext } from '../../../context/ServicesProvider';
 const ServicesCard = ({ service }) => {
   const { detailsService } = useContext(ServiceContext);
   const { description, img, price, ratings, _id, title } = service;
-  console.log(service)
+  // console.log(service)
   return (
     <PhotoProvider>
       <div className="card card-side bg-base-100 shadow-xl rounded-none grid md:grid-cols-2">

@@ -10,8 +10,8 @@ const AddAReview = () => {
   const post = () => toast("Post Successfully");
   const postReview = (e) => {
     e.preventDefault();
-    
-    const review = e.target.review.value;
+    const form = e.target;
+    const review = form.review.value;
     const reviewUserInfo = {
       name: user?.displayName,
       email: user?.email,
@@ -34,7 +34,7 @@ const AddAReview = () => {
         // console.log(data);
         if (data.acknowledged) {
           post();
-          e.target.value = "";
+          form.reset();
         }
       })
       .catch((error) => {
