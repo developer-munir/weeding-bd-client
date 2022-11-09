@@ -5,7 +5,9 @@ import AddAReview from "../../Reviews/AddAReview";
 import Reviews from "../../Reviews/Reviews";
 import "./servicedetails.css";
 import { FaSadTear } from "react-icons/fa";
+import useTitle from "../../../hooks/useTitle";
 const ServiceDetails = () => {
+  useTitle('Service Details')
   const serviceDetails = useLoaderData();
   const [reviews, setReviews] = useState();
   const { user } = useContext(AuthContext);

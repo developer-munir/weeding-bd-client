@@ -3,8 +3,9 @@ import React, { useContext } from "react";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
-
+import useTitle from "../../hooks/useTitle";
 const Login = () => {
+  useTitle("Login");
   const { loginUser, google } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -12,6 +13,7 @@ const Login = () => {
 
   const notify = () => toast("login successfully");
   const handleLogin = (e) => {
+    
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
@@ -34,6 +36,7 @@ const Login = () => {
             localStorage.setItem("token", data.token);
             notify();
             navigate(from, { replace: true });
+            
           })
         
       })

@@ -1,7 +1,9 @@
 import React from "react";
 import toast from "react-hot-toast";
+import useTitle from "../../hooks/useTitle";
 
 const AddToService = () => {
+  useTitle('Add Service')
   const notify = () => toast('Service Added Successfully');
   const handleAddToService = (e) => {
     e.preventDefault();

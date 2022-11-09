@@ -22,7 +22,7 @@ const Navbar = () => {
         <Link className="uppercase" to="/">Home</Link>
       </li>
       <li>
-        <Link className="uppercase">Blog</Link>
+        <Link className="uppercase" to='/blog'>Blog</Link>
       </li>
       {user?.uid ? (
         <>

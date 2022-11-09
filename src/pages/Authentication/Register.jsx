@@ -2,8 +2,10 @@ import React, { useContext } from "react";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 
 const Register = () => {
+  useTitle('Register');
   const { registerUser, userProfileUpdate } = useContext(AuthContext);
   const notify = () => toast("Registation Successfully");
   const handleRegister = (e) => {

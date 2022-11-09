@@ -1,16 +1,16 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import useTitle from '../../../hooks/useTitle';
 import Header from '../Header/Header';
-import Services from '../Services/Services';
 
 const Home = () => {
+    useTitle('Home');
     return (
         <div>
             <Header></Header>
             <div>
                 <Outlet></Outlet>
             </div>
-            {/* <Services></Services> */}
         </div>
     );
 };
