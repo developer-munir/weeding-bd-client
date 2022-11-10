@@ -8,20 +8,21 @@ import { FaSadTear } from "react-icons/fa";
 import useTitle from "../../../hooks/useTitle";
 import { FaArrowRight } from "react-icons/fa";
 const ServiceDetails = () => {
-  useTitle('Service Details')
+  useTitle("Service Details");
   const serviceDetails = useLoaderData();
   const [reviews, setReviews] = useState();
   const { user } = useContext(AuthContext);
-  const { img, description, price, ratings, title ,} =
-    serviceDetails;
+  const { img, description, price, ratings, title } = serviceDetails;
   useEffect(() => {
-    fetch(`http://localhost:5000/allreviews?title=${title}`)
+    fetch(
+      `https://assignment-11-server-tau.vercel.app/allreviews?title=${title}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
       })
       .catch((error) => console.error(error));
-  }, [title]);
+  }, [title,reviews]);
 
   return (
     <div className=" my-10 details-container">

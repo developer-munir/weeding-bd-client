@@ -5,20 +5,23 @@ import toast from "react-hot-toast";
 import useTitle from "../../hooks/useTitle";
 
 const MyReviews = () => {
-  useTitle('MyReviews')
+  useTitle("MyReviews");
   const { user } = useContext(AuthContext);
   const [usersReviews, setUsersReviews] = useState(null);
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
-      headers: {
-        authorization:`Bearer ${localStorage.getItem('token')}`
+    fetch(
+      `https://assignment-11-server-tau.vercel.app/reviews?email=${user?.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
       }
-    })
+    )
       .then((res) => {
         if (res.status === 401 || res.status === 403) {
-          alert('invalid user')
+          alert("invalid user");
         }
-        return res.json()
+        return res.json();
       })
       .then((data) => {
         setUsersReviews(data);
@@ -29,7 +32,7 @@ const MyReviews = () => {
   }, [user?.email]);
   const notify = () => toast("Deleted successfully");
   const deleteReview = (id) => {
-    fetch(`http://localhost:5000/reviews/${id}`, {
+    fetch(`https://assignment-11-server-tau.vercel.app/reviews/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

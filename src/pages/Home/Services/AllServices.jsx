@@ -3,10 +3,10 @@ import useTitle from "../../../hooks/useTitle";
 import ServicesCard from "./ServicesCard";
 
 const AllServices = () => {
-  useTitle('AllServices')
+  useTitle("AllServices");
   const [services, setServices] = useState(null);
   useEffect(() => {
-    fetch("http://localhost:5000/allservices")
+    fetch("https://assignment-11-server-tau.vercel.app/allservices")
       .then((res) => res.json())
       .then((data) => {
         setServices(data);
@@ -18,10 +18,7 @@ const AllServices = () => {
       <h1 className="text-center text-5xl font-bold my-5 ">My All Services</h1>
       <div className="grid md:grid-cols-2 gap-6 p-2">
         {services?.map((service) => (
-          <ServicesCard
-            service={service}
-            key={service._id}
-          ></ServicesCard>
+          <ServicesCard service={service} key={service._id}></ServicesCard>
         ))}
       </div>
     </div>

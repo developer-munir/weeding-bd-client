@@ -3,8 +3,8 @@ import toast from "react-hot-toast";
 import useTitle from "../../hooks/useTitle";
 
 const AddToService = () => {
-  useTitle('Add Service')
-  const notify = () => toast('Service Added Successfully');
+  useTitle("Add Service");
+  const notify = () => toast("Service Added Successfully");
   const handleAddToService = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -20,7 +20,7 @@ const AddToService = () => {
       ratings: ratings,
       description: description,
     };
-    fetch("http://localhost:5000/addservice", {
+    fetch("https://assignment-11-server-tau.vercel.app/addservice", {
       method: "POST",
       headers: {
         "content-type": "application/json",

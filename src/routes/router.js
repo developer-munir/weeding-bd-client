@@ -27,14 +27,14 @@ export const router = createBrowserRouter([
             element: <Services></Services>,
           },
           {
-            path: '/',
-            element:<Follow></Follow>
-          },
-          {
-            path: "/allservices",
-            element: <AllServices></AllServices>,
+            path: "/",
+            element: <Follow></Follow>,
           },
         ],
+      },
+      {
+        path: "/allservices",
+        element: <AllServices></AllServices>,
       },
       {
         path: "/login",
@@ -52,7 +52,9 @@ export const router = createBrowserRouter([
         path: "/services/:id",
         element: <ServiceDetails></ServiceDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(
+            `https://assignment-11-server-tau.vercel.app/services/${params.id}`
+          ),
       },
       {
         path: "/myreviews",

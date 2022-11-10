@@ -21,7 +21,7 @@ const AddAReview = () => {
       title: serviceId?.title,
       price: serviceId?.price,
     };
-    fetch("http://localhost:5000/allposts", {
+    fetch("https://assignment-11-server-tau.vercel.app/allposts", {
       method: "POST",
       headers: {
         "content-type": "application/json",

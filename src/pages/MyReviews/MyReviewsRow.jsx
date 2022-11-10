@@ -11,7 +11,7 @@ const MyReviewsRow = ({ reviews, deleteReview }) => {
   const notify = () => toast("Update Successfully");
   const handleUpdate = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:5000/reviews/${_id}`, {
+    fetch(`https://assignment-11-server-tau.vercel.app/reviews/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -22,7 +22,7 @@ const MyReviewsRow = ({ reviews, deleteReview }) => {
       .then((data) => {
         if (data.modifiedCount > 0) {
           notify();
-        } 
+        }
       })
       .catch((error) => console.log(error));
   };
@@ -69,7 +69,10 @@ const MyReviewsRow = ({ reviews, deleteReview }) => {
           </tr>
           <tr className="grid md:grid-cols-3">
             <td className="flex">
-              <span onClick={() => deleteReview(_id)} className="cursor-pointer">
+              <span
+                onClick={() => deleteReview(_id)}
+                className="cursor-pointer"
+              >
                 <AiOutlineDelete></AiOutlineDelete>
               </span>
               <span className="ml-3">{user?.review}</span>

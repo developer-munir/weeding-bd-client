@@ -1,0 +1,9 @@
+.blogupdate-container{
+    display: grid;
+    grid-template-columns: 400px auto;
+}
+@media screen and (max-width: 640px) {
+   .blogupdate-container{
+    grid-template-columns: 1fr;
+   }   
+}
