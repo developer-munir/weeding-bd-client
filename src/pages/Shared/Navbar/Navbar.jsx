@@ -72,9 +72,9 @@ const Navbar = () => {
             {navlinks}
           </ul>
         </div>
-        <Link className="btn btn-ghost md:text-xl uppercase">
+        <span className="btn btn-ghost md:text-xl uppercase">
           Wedding Family BD
-        </Link>
+        </span>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">{navlinks}</ul>

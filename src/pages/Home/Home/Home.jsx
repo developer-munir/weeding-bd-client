@@ -1,5 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import Follow from '../Follow/Follow';
 import Header from '../Header/Header';
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
             <div>
                 <Outlet></Outlet>
             </div>
+            <Follow></Follow>
         </div>
     );
 };
