@@ -41,7 +41,7 @@ const AddToService = () => {
     <div>
       <h1 className="text-center text-3xl my-5">Add To Service</h1>
       <form
-        className="grid md:grid-cols-2 md:w-1/2 mx-auto gap-5 p-4 border shadow-xl rounded-md "
+        className="grid md:grid-cols-2 md:w-1/2 mx-auto gap-5 p-4 border shadow-2xl rounded-md "
         onSubmit={handleAddToService}
       >
         <div className="form-control w-full">
@@ -107,7 +107,7 @@ const AddToService = () => {
         <div className="form-control w-full">
           <button
             type="submit"
-            className="border border-black  mt-10 py-2 uppercase font-bold hover:bg-slate-600 hover:text-white"
+            className="border   mt-10 py-2 uppercase font-bold hover:text-red-500 bg-[#0D0D0D] text-[#CAD5E2] "
           >
             Submit
           </button>

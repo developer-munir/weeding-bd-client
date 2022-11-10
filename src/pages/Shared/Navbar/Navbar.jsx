@@ -22,7 +22,7 @@ const Navbar = () => {
         <Link className="uppercase hover:bg-red-500" to="/">Home</Link>
       </li>
       <li>
-        <Link className="uppercase hover:bg-red-500" to='/blog'>Blog</Link>
+        <Link className="uppercase hover:bg-red-500" to='/blog'>Blogs</Link>
       </li>
       {user?.uid ? (
         <>
