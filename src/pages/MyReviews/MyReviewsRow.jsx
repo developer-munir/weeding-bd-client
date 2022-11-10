@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaRegWindowMinimize, FaEdit } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
+import { AiOutlineDelete } from "react-icons/ai";
 import "./table.css";
 import toast from "react-hot-toast";
 const MyReviewsRow = ({ reviews, deleteReview }) => {
@@ -69,7 +70,7 @@ const MyReviewsRow = ({ reviews, deleteReview }) => {
           <tr className="grid md:grid-cols-3">
             <td className="flex">
               <span onClick={() => deleteReview(_id)} className="cursor-pointer">
-                <FaRegWindowMinimize></FaRegWindowMinimize>
+                <AiOutlineDelete></AiOutlineDelete>
               </span>
               <span className="ml-3">{user?.review}</span>
             </td>
