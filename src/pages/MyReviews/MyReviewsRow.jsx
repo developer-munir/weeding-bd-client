@@ -66,21 +66,21 @@ const MyReviewsRow = ({ reviews, deleteReview }) => {
             <th>Service Name</th>
             <th>Update Review</th>
           </tr>
-          <tr className="grid grid-cols-3">
+          <tr className="grid md:grid-cols-3">
             <td className="flex">
-              <td onClick={() => deleteReview(_id)} className="cursor-pointer">
+              <span onClick={() => deleteReview(_id)} className="cursor-pointer">
                 <FaRegWindowMinimize></FaRegWindowMinimize>
-              </td>
-              <td>{user?.review}</td>
+              </span>
+              <span className="ml-3">{user?.review}</span>
             </td>
             <td>{title}</td>
             <td className="flex items-center">
-              <td>
+              <span>
                 <label htmlFor={_id} className="cursor-pointer">
                   <FaEdit></FaEdit>
                 </label>
-              </td>
-              <td>Update Review</td>
+              </span>
+              <span className="ml-3">Update Review</span>
             </td>
           </tr>
         </table>

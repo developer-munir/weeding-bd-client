@@ -109,12 +109,14 @@ const Login = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="bg-[#CAD5E2] py-2">Login</button>
+              <button className="bg-[#CAD5E2] hover:text-red-600 py-2">
+                Login
+              </button>
             </div>
           </form>
 
           <button
-            className="bg-[#CAD5E2] py-2 px-6 mb-3"
+            className="hover:text-red-600 bg-[#CAD5E2] py-2 px-6 mb-3"
             type="submit"
             onClick={singInGoogle}
           >

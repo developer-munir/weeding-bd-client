@@ -9,7 +9,7 @@ const Header = () => {
           alt=""
           className="rounded-full w-[200px] h-[200px] mx-auto"
         />
-        <h1 className="text-5xl py-3">YOU JUST ENJOY YOUR DAY!</h1>
+        <h1 className="md:text-5xl text-3xl py-3">YOU JUST ENJOY YOUR DAY!</h1>
         <p className="py-3 mb-3  text-slate-500">
           Reading one line that encapsulates our love for photography and art is
           powerful and often reminds us of the importance of documenting moments

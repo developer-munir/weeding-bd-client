@@ -23,7 +23,7 @@ const ServicesCard = ({ service }) => {
         </figure>
         <div className="card-body">
           <h2 className="card-title">{title}</h2>
-          <p className='from-accent-content text-blue-300'>
+          <p className="from-accent-content text-stone-500">
             {description.length > 100
               ? description.slice(0, 100) + "..."
               : description}

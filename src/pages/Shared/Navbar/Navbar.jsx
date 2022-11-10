@@ -19,21 +19,21 @@ const Navbar = () => {
   const navlinks = (
     <>
       <li>
-        <Link className="uppercase hover:bg-red-500" to="/">Home</Link>
+        <Link className="uppercase hover:text-red-500" to="/">Home</Link>
       </li>
       <li>
-        <Link className="uppercase hover:bg-red-500" to='/blog'>Blogs</Link>
+        <Link className="uppercase hover:text-red-500" to='/blog'>Blogs</Link>
       </li>
       {user?.uid ? (
         <>
           <li>
-            <Link className="uppercase hover:bg-red-500" to='/myreviews'>My Reviews</Link>
+            <Link className="uppercase hover:text-red-500" to='/myreviews'>My Reviews</Link>
           </li>
           <li>
-            <Link className="uppercase hover:bg-red-500" to='/addtoservice'>AddToService</Link>
+            <Link className="uppercase hover:text-red-500" to='/addtoservice'>AddToService</Link>
           </li>
           <li>
-            <Link className="uppercase hover:bg-red-500" onClick={handleLogout}>Logout</Link>
+            <Link className="uppercase hover:text-red-500" onClick={handleLogout}>Logout</Link>
           </li>
         </>
       ) : (
@@ -67,20 +67,20 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-[#0D0D0D] rounded-box w-52"
           >
             {navlinks}
           </ul>
         </div>
-        <Link className="btn btn-ghost text-xl uppercase">
+        <Link className="btn btn-ghost md:text-xl uppercase">
           Wedding Family BD
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">{navlinks}</ul>
       </div>
-      <div className="navbar-end uppercase">
-        <span>{user?.displayName}</span>
+      <div className="navbar-end">
+        <small>{user?.displayName}</small>
       </div>
     </div>
   );

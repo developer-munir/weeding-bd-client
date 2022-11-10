@@ -6,6 +6,7 @@ import Reviews from "../../Reviews/Reviews";
 import "./servicedetails.css";
 import { FaSadTear } from "react-icons/fa";
 import useTitle from "../../../hooks/useTitle";
+import { FaArrowRight } from "react-icons/fa";
 const ServiceDetails = () => {
   useTitle('Service Details')
   const serviceDetails = useLoaderData();
@@ -31,12 +32,12 @@ const ServiceDetails = () => {
               src={img}
               alt="wedding"
               data-aos="fade-up-left"
-              className="w-full h-full"
+              className="w-full h-full "
             />
           </figure>
           <div className="card-body">
             <h2 className="card-title">{title}!</h2>
-            <p className="from-accent-content text-blue-300">{description}</p>
+            <p className="from-accent-content text-stone-500">{description}</p>
             <div className="card-actions flex items-center justify-between font-bold">
               <span>Price : {price}$</span>
               <span>Ratings : {ratings}</span>
@@ -74,8 +75,11 @@ const ServiceDetails = () => {
           </div>
           <div>
             <Link>
-              <h1 className="text-center text-2xl my-3 border border-black px-10 py-2">
-                All Reviews
+              <h1 className="text-center text-2xl my-3 border border-black px-10 py-2 flex items-center justify-center">
+                <span className="mr-3">All Reviews</span>
+                <span>
+                  <FaArrowRight></FaArrowRight>
+                </span>
               </h1>
             </Link>
             {reviews?.map((userReviews) => (
