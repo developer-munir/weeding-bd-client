@@ -13,7 +13,7 @@ function App() {
     AOS.refresh();
   }, []);
   return (
-    <div className="bg-[#CAD5E2] min-h-[100vh] font-serif overflow-hidden">
+    <div className="min-h-[100vh] font-serif overflow-hidden">
       <RouterProvider router={router}></RouterProvider>
       <Toaster />
     </div>

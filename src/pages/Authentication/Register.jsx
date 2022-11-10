@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import useTitle from "../../hooks/useTitle";
 
+import loginBanner from "../../assests/login.jpg";
 const Register = () => {
-  useTitle('Register');
+  useTitle("Register");
   const { registerUser, userProfileUpdate } = useContext(AuthContext);
   const notify = () => toast("Registation Successfully");
   const handleRegister = (e) => {
@@ -34,20 +35,17 @@ const Register = () => {
   };
   return (
     <div className="hero min-h-screen">
-      <div className="hero-content grid md:w-1/2 mx-auto">
+      <div className="hero-content grid md:grid-cols-2 text-center">
         <div className="text-center">
-          <h1 className="text-5xl font-bold">Register now!</h1>
-          <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
-          </p>
+          <div>
+            <img src={loginBanner} alt="" />
+          </div>
         </div>
-        <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
+        <div className="bg-[#0D0D0D] border shadow-2xl rounded-md ">
           <form className="card-body" onSubmit={handleRegister}>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Name</span>
+                <span className="label-text text-[#CAD5E2]">Name</span>
               </label>
               <input
                 type="text"
@@ -59,7 +57,7 @@ const Register = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text text-[#CAD5E2]">Email</span>
               </label>
               <input
                 type="email"
@@ -71,7 +69,7 @@ const Register = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text text-[#CAD5E2]">Password</span>
               </label>
               <input
                 type="password"
@@ -81,16 +79,18 @@ const Register = () => {
                 required
               />
               <label className="label">
-                <Link to="/login" className="label-text-alt link link-hover">
+                <Link
+                  to="/login"
+                  className="label-text-alt link hover:link-success text-[#CAD5E2]"
+                >
                   Already have an account?
                 </Link>
               </label>
             </div>
-            <div className="form-control mt-6">
-              <button className="btn btn-primary" type="submit">
-                Register
-              </button>
-            </div>
+
+            <button className="bg-[#CAD5E2] py-2 px-6 mb-3" type="submit">
+              Register
+            </button>
           </form>
         </div>
       </div>

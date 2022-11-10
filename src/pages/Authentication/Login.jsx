@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import useTitle from "../../hooks/useTitle";
+import loginBanner from "../../assests/login.jpg";
 const Login = () => {
   useTitle("Login");
   const { loginUser, google } = useContext(AuthContext);
@@ -13,7 +14,6 @@ const Login = () => {
 
   const notify = () => toast("login successfully");
   const handleLogin = (e) => {
-    
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
@@ -36,9 +36,7 @@ const Login = () => {
             localStorage.setItem("token", data.token);
             notify();
             navigate(from, { replace: true });
-            
-          })
-        
+          });
       })
       .catch((error) => {
         console.error(error);
@@ -72,20 +70,15 @@ const Login = () => {
   };
   return (
     <div className="hero min-h-screen">
-      <div className="hero-content grid md:w-1/2 mx-auto">
-        <div className="text-center">
-          <h1 className="text-5xl font-bold">Login now!</h1>
-          <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
-          </p>
+      <div className="hero-content grid md:grid-cols-2 text-center">
+        <div>
+          <img src={loginBanner} alt="" />
         </div>
-        <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
-          <form className="card-body" onSubmit={handleLogin}>
-            <div className="form-control">
+        <div className="bg-[#0D0D0D] border shadow-2xl rounded-md ">
+          <form className="card-body " onSubmit={handleLogin}>
+            <div className="form-control ">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text text-[#CAD5E2]">Email</span>
               </label>
               <input
                 type="email"
@@ -97,7 +90,7 @@ const Login = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text text-[#CAD5E2]">Password</span>
               </label>
               <input
                 type="password"
@@ -107,24 +100,26 @@ const Login = () => {
                 required
               />
               <label className="label">
-                <Link to="/register" className="label-text-alt link link-hover">
-                  Register Please?
+                <Link
+                  to="/register"
+                  className="label-text-alt link hover:link-error text-[#CAD5E2]"
+                >
+                  new here ? register
                 </Link>
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
+              <button className="bg-[#CAD5E2] py-2">Login</button>
             </div>
           </form>
-          <div className="form-control mt-6">
-            <button
-              className="btn btn-primary"
-              type="submit"
-              onClick={singInGoogle}
-            >
-              Sing in Google
-            </button>
-          </div>
+
+          <button
+            className="bg-[#CAD5E2] py-2 px-6 mb-3"
+            type="submit"
+            onClick={singInGoogle}
+          >
+            Sing in Google
+          </button>
         </div>
       </div>
     </div>
